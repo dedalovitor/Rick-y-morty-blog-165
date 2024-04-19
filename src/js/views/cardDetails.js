@@ -28,7 +28,7 @@ export const CardDetails = () => {
 				}
 
 			})}
-			<p className="m-2">Character ID: {params.id}</p>
+			<p className="m-2">{params.type == "location" ? <p>Location ID: {params.id}</p> : params.type == "character" ? <p>Character ID: {params.id}</p> : <p>Episode ID: {params.id}</p>} </p>
 
 		</div>
 	);

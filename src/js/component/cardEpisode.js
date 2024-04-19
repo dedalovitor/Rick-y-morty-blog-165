@@ -1,7 +1,9 @@
-import React, { Component } from "react";
+import React, { Component, useContext } from "react";
 import { Link } from "react-router-dom";
+import { Context } from "../store/appContext";
 
 export const CardEpisode = ({ episode }) => {
+    const { store, actions } = useContext(Context);
 
     return (
         <div className="card m-2" key={episode.id} style={{ width: "18rem" }}>
@@ -11,9 +13,14 @@ export const CardEpisode = ({ episode }) => {
                 <p className="card-text">Air date: {episode.air_date}</p>
                 <p className="card-text">Episode: {episode.episode}</p>
                 <p className="card-text">Characters: {episode.characters.length} </p>
-                <Link to={"carddetails/episode/" + episode.id}>
-                    <button href="#" className="btn btn-primary">Go to details</button>
-                </Link>
+
+
+                <div className="d-flex justify-content-between">
+                    <button className={store.favorites.includes(episode.name) ? "btn btn-outline-success text-success" : "btn btn-outline-warning text-warning"} onClick={() => actions.setFavorites(episode.name)}>❤</button>
+                    <Link to={"carddetails/episode/" + episode.id}>
+                        <button href="#" className="btn btn-primary">Go to details</button>
+                    </Link>
+                </div>
             </div>
         </div>
     )

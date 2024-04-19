@@ -4,6 +4,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			characters: [],
 			locations: [],
 			episodes: [],
+			favorites: []
 
 
 		},
@@ -30,6 +31,16 @@ const getState = ({ getStore, getActions, setStore }) => {
 				setStore({ episodes: data.results })
 				console.log(data);
 
+			},
+
+			setFavorites: (name) => {
+				const store = getStore(); //utilizamos el getStore para poder acceder al store
+				if (!store.favorites.includes(name)) {
+					setStore({ favorites: [...store.favorites, name] })
+				} else {
+					setStore({ favorites: store.favorites.filter((favName) => favName != name) })
+				}
+				;  //si [...store.favorites, name] no está entre [] no funciona, ya que parece que al ser favorites un array si no lo indicamos en el action no lo interpreta como un array
 			},
 
 		}
