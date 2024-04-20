@@ -16,7 +16,7 @@ export const CardEpisode = ({ episode }) => {
 
 
                 <div className="d-flex justify-content-between">
-                    <button className={store.favorites.includes(episode.name) ? "btn btn-outline-success text-success" : "btn btn-outline-warning text-warning"} onClick={() => actions.setFavorites(episode.name)}>❤</button>
+                    <button className={store.favorites.includes(episode.name) ? "btn btn-warning text-success" : "btn btn-outline-warning text-warning"} onClick={() => actions.setFavorites(episode.name)}>❤</button>
                     <Link to={"carddetails/episode/" + episode.id}>
                         <button href="#" className="btn btn-primary">Go to details</button>
                     </Link>

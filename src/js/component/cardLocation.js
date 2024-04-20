@@ -14,7 +14,7 @@ export const CardLocation = ({ location }) => {
                 <p className="card-text">Dimension: {location.dimension}</p>
                 <p className="card-text">Residents: {location.residents.length}</p>
                 <div className="d-flex justify-content-between">
-                    <button className={store.favorites.includes(location.name) ? "btn btn-outline-success text-success" : "btn btn-outline-warning text-warning"} onClick={() => actions.setFavorites(location.name)}>❤</button>
+                    <button className={store.favorites.includes(location.name) ? "btn btn-warning text-success" : "btn btn-outline-warning text-warning"} onClick={() => actions.setFavorites(location.name)}>❤</button>
                     <Link to={"carddetails/location/" + location.id}>
                         <button href="#" className="btn btn-primary">Go to details</button>
                     </Link>

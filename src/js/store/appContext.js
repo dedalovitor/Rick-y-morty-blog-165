@@ -22,7 +22,7 @@ const injectContext = PassedComponent => {
 		);
 
 		useEffect(() => {
-			state.actions.getCharacters();
+			state.actions.getCharacters("https://rickandmortyapi.com/api/character");
 			state.actions.getLocations();
 			state.actions.getEpisodes();
 		}, []);

@@ -17,24 +17,24 @@ export const Home = () => {
 			<h1 className="mt-5">Characters</h1>
 			<div className="container" >
 				<div className="row">
-					{store.characters.map((character) => {
+					{store.characters.results ? store.characters.results.map((character) => {
 						return (
 							<CardCharacter key={character.id} character={character} />
 						)
-					})
+					}) : <p>loading...</p>
 
 					}
-
-
 				</div>
+				<button type="button" className="btn btn-primary m-4" onClick={() => actions.getCharacters(store.characters.info.next)}>Load More</button>
+				<button type="button" className="btn btn-primary m-4" onClick={() => actions.getCharacters(store.characters.info.prev)}>Prev</button>
 				<h1 className="mt-5">Locations</h1>
 				<div className="container mt-5">
 					<div className="row">
-						{store.locations.map((location) => {
+						{store.locations.results ? store.locations.results.map((location) => {
 							return (
 								<CardLocation key={location.id} location={location}></CardLocation>
 							)
-						})
+						}) : <p>Loading...</p>
 						}
 					</div>
 				</div>
@@ -42,11 +42,11 @@ export const Home = () => {
 				<h1 className="mt-5">Episodes</h1>
 				<div className="container mt-5">
 					<div className="row">
-						{store.episodes.map((episode) => {
+						{store.episodes.results ? store.episodes.results.map((episode) => {
 							return (
 								<CardEpisode key={episode.id} episode={episode}></CardEpisode>
 							)
-						})
+						}) : <p>Loading...</p>
 						}
 					</div>
 				</div>
