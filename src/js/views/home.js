@@ -37,6 +37,8 @@ export const Home = () => {
 						}) : <p>Loading...</p>
 						}
 					</div>
+					<button type="button" className="btn btn-primary m-4" onClick={() => actions.getLocations(store.locations.info.next)}>Load More</button>
+					<button type="button" className="btn btn-primary m-4" onClick={() => actions.getLocations(store.locations.info.prev)}>Prev</button>
 				</div>
 
 				<h1 className="mt-5">Episodes</h1>
@@ -49,6 +51,8 @@ export const Home = () => {
 						}) : <p>Loading...</p>
 						}
 					</div>
+					<button type="button" className="btn btn-primary m-4" onClick={() => actions.getEpisodes(store.episodes.info.next)}>Load More</button>
+					<button type="button" className="btn btn-primary m-4" onClick={() => actions.getEpisodes(store.episodes.info.prev)}>Prev</button>
 				</div>
 
 
